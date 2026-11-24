@@ -1,0 +1,56 @@
+PASAPALABRA DE INFORMÁTICA — VERSIÓN WEB BÁSICA
+================================================
+
+Juego en castellano, inglés y valencià, con dos roscos:
+- Componentes de la placa base.
+- FPB 1º de Informática y Comunicaciones.
+
+CÓMO ABRIR EL JUEGO SIN INSTALAR NADA
+--------------------------------------
+1. Descomprime primero todo el archivo ZIP.
+   - Windows: clic derecho sobre el ZIP y «Extraer todo».
+   - macOS: doble clic sobre el ZIP.
+   - Linux: «Extraer aquí» desde el gestor de archivos.
+
+2. Abre la carpeta extraída y haz doble clic en «index.html».
+   El juego se abrirá en tu navegador habitual.
+
+3. Si no se abre automáticamente, haz clic derecho en «index.html»,
+   elige «Abrir con» y selecciona Chrome, Edge, Firefox o Safari.
+
+No hace falta instalar programas, crear cuentas, ejecutar comandos,
+abrir un servidor ni conectarse a internet. Funciona sin conexión.
+
+IMPORTANTE
+----------
+- Mantén todos los archivos juntos dentro de la misma carpeta.
+- Abre siempre «index.html»; no abras los archivos .js por separado.
+- No ejecutes el juego directamente desde dentro del ZIP: extráelo antes.
+
+CÓMO JUGAR
+----------
+1. Elige idioma, rosco y tiempo.
+2. Pulsa «¡Empezar!» (o el botón equivalente en el idioma elegido).
+3. Lee la pista, escribe la respuesta y pulsa Intro o «Responder».
+4. Usa «Pasapalabra» para dejar la letra para la siguiente vuelta.
+   También puedes escribir «pasapalabra», «passaparaula» o «pass».
+5. Puedes pausar el tiempo o salir al menú con los botones superiores.
+6. Al terminar verás la puntuación y el repaso de todas las respuestas.
+
+No importan las mayúsculas, los acentos, los espacios, los puntos,
+los guiones ni los apóstrofos al comprobar una respuesta.
+
+ARCHIVOS INCLUIDOS
+------------------
+index.html    Página principal: ábrela para jugar.
+styles.css    Diseño y apariencia.
+questions.js  Las 158 preguntas de los seis roscos.
+i18n.js       Textos de la interfaz en los tres idiomas.
+app.js        Funcionamiento del juego.
+icon.svg      Icono de la pestaña del navegador.
+LEEME.txt     Estas instrucciones.
+
+PRIVACIDAD Y DATOS
+------------------
+El juego no envía datos a internet. La partida no se guarda al cerrar
+o recargar la página. Para conservarlo todo, guarda la carpeta completa.

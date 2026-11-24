@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Rosco Pasapalabra trilingüe sobre la placa base y FPB 1º de Informática y Comunicaciones.">
+  <title>Pasapalabra de Informática</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="questions.js" defer></script>
+  <script src="i18n.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main>
+    <section id="start-screen" class="page-shell start-screen" aria-labelledby="game-title">
+      <div id="start-rosco" class="rosco start-rosco" aria-hidden="true">
+        <div class="rosco-center start-center">
+          <p id="start-tagline" class="start-tagline"></p>
+          <h1 id="game-title" class="game-title"><span>PASA</span><span>PALABRA</span></h1>
+          <p id="start-count" class="start-count"></p>
+        </div>
+      </div>
+
+      <section class="panel setup-panel" aria-label="Configuración">
+        <div>
+          <h2 id="language-label" class="section-label"></h2>
+          <div class="choice-grid three-columns">
+            <button type="button" class="choice language-choice" data-lang="es" aria-pressed="true"><strong>ES</strong><span>Castellano</span></button>
+            <button type="button" class="choice language-choice" data-lang="en" aria-pressed="false"><strong>EN</strong><span>English</span></button>
+            <button type="button" class="choice language-choice" data-lang="va" aria-pressed="false"><strong>VA</strong><span>Valencià</span></button>
+          </div>
+        </div>
+
+        <div>
+          <h2 id="topic-label" class="section-label"></h2>
+          <div class="choice-grid topic-grid">
+            <button type="button" class="choice topic-choice" data-topic="placa" aria-pressed="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3M9 9h6v6H9z"/></svg>
+              <strong data-topic-title></strong><span data-topic-description></span>
+            </button>
+            <button type="button" class="choice topic-choice" data-topic="fpb" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5L2 9Z"/><path d="M6 11.5V16c3 2.5 9 2.5 12 0v-4.5M22 9v6"/></svg>
+              <strong data-topic-title></strong><span data-topic-description></span>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <h2 id="time-label" class="section-label"></h2>
+          <div class="choice-grid three-columns">
+            <button type="button" class="choice time-choice" data-seconds="150" aria-pressed="false">2:30</button>
+            <button type="button" class="choice time-choice" data-seconds="200" aria-pressed="true">3:20</button>
+            <button type="button" class="choice time-choice" data-seconds="300" aria-pressed="false">5:00</button>
+          </div>
+        </div>
+
+        <button id="start-button" type="button" class="button button-gold start-button"></button>
+      </section>
+    </section>
+
+    <section id="game-screen" class="page-shell game-screen" hidden aria-label="Partida">
+      <header class="game-header">
+        <div class="brand-line"><span class="brand">PASAPALABRA</span><span id="game-topic" class="game-topic"></span></div>
+        <div class="header-actions">
+          <button id="pause-button" type="button" class="button button-stage"></button>
+          <button id="quit-button" type="button" class="button button-stage"></button>
+        </div>
+      </header>
+
+      <div class="game-layout">
+        <div id="game-rosco" class="rosco game-rosco">
+          <div class="rosco-center game-center">
+            <div id="timer" class="timer">3:20</div>
+            <div class="stats">
+              <span class="stat-correct"><strong id="correct-count">0</strong><span id="correct-label"></span></span>
+              <span class="stat-wrong"><strong id="wrong-count">0</strong><span id="wrong-label"></span></span>
+              <span class="stat-left"><strong id="left-count">0</strong><span id="left-label"></span></span>
+            </div>
+          </div>
+        </div>
+
+        <section class="panel question-panel">
+          <div class="question-heading">
+            <div id="current-letter" class="bubble bubble-spot">A</div>
+            <p id="question-rule" class="question-rule"></p>
+          </div>
+          <p id="question-clue" class="question-clue"></p>
+          <form id="answer-form" class="answer-form">
+            <label class="sr-only" for="answer-input"></label>
+            <input id="answer-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false">
+            <div class="answer-actions">
+              <button id="answer-button" type="submit" class="button button-show"></button>
+              <button id="pass-button" type="button" class="button button-gold"></button>
+            </div>
+          </form>
+          <div class="feedback-wrap"><p id="feedback" role="status" aria-live="polite"></p></div>
+          <p id="game-hint" class="game-hint"></p>
+          <div id="pause-overlay" class="pause-overlay" hidden>
+            <strong id="paused-label"></strong>
+            <button id="resume-button" type="button" class="button button-gold"></button>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section id="results-screen" class="page-shell results-screen" hidden aria-labelledby="results-title">
+      <p id="results-kicker" class="results-kicker"></p>
+      <h1 id="results-title" class="results-title"></h1>
+      <p id="results-summary" class="results-summary"></p>
+      <div id="results-rosco" class="rosco results-rosco"><div class="rosco-center"></div></div>
+      <button id="again-button" type="button" class="button button-gold again-button"></button>
+      <section class="panel review-panel">
+        <h2 id="review-title" class="review-title"></h2>
+        <ul id="review-list" class="review-list"></ul>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
